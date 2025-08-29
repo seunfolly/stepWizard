@@ -1510,6 +1510,7 @@ const App = () => {
     if (isReviewStep && solutionType) {
       return (
         <MemoizedFinalSummary
+          selectedGoals={selectedGoals}
           trinitySelectionId={trinitySelectionId}
           selectedTier={selectedTier}
           selectedIndustry={selectedIndustry}
