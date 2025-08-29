@@ -415,6 +415,7 @@ const App = () => {
       return [
         "Solution Type",
         "Trinity Package",
+        "Advertising Platform",
         "Store Type",
         "Review & Purchase",
       ];
@@ -425,6 +426,7 @@ const App = () => {
         "Solution Type",
         "Industry",
         "Trinity Package",
+        "Advertising Platform",
         "Platform Tier",
         "Review",
       ];
@@ -439,7 +441,7 @@ const App = () => {
 
       const needsStoreInfo =
         trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && nextStepNum === 3 && !needsStoreInfo) {
+      if (solutionType === "trinity" && nextStepNum === 4 && !needsStoreInfo) {
         nextStepNum++;
       }
 
@@ -454,7 +456,7 @@ const App = () => {
 
       const needsStoreInfo =
         trinitySelectionId === "trinity-plus" || trinitySelectionId === "garo";
-      if (solutionType === "trinity" && prevStepNum === 3 && !needsStoreInfo) {
+      if (solutionType === "trinity" && prevStepNum === 4 && !needsStoreInfo) {
         prevStepNum--;
       }
 
@@ -513,6 +515,8 @@ const App = () => {
           case 2:
             return <TrinityPackages />;
           case 3:
+            return <TrinityAED />;
+          case 4:
             return <StoreType />;
           default:
             return null;
@@ -539,6 +543,8 @@ const App = () => {
           case 3:
             return <TrinityPackages />;
           case 4:
+            return <TrinityAED />;
+          case 5:
             return <PlatformTier />;
           default:
             return null;
@@ -590,6 +596,223 @@ const App = () => {
           className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold flex items-center gap-2 hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={nextStep}
           disabled={!solutionType}
+        >
+          Continue <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+
+  const TrinityAED = () => (
+    <div className="animate-fadeIn">
+      <div className="inline-block px-4 py-1 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/30">
+        Advertising Platform
+      </div>
+      <h2 className="text-3xl font-bold mb-2 text-white">
+        Unify all ad platforms with Trinity AED?
+      </h2>
+      <p className="text-gray-400 mb-8">
+        Connect and optimize your advertising across multiple platforms with our AI-powered dashboard.
+      </p>
+
+      <div className="grid grid-cols-1 gap-4 mb-8">
+        <div
+          className={`bg-white/5 backdrop-blur-xl rounded-2xl p-6 cursor-pointer transition-all duration-300 border-2 ${
+            trinitySelectionId === "aed"
+              ? "border-blue-500 bg-blue-500/10 scale-[1.02]"
+              : "border-white/10 hover:border-white/20 hover:bg-white/10 hover:-translate-y-1"
+          }`}
+          onClick={() => setTrinitySelectionId("aed")}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-3xl flex-shrink-0">🚀</div>
+            <div className="flex-1">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    AED System only
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-1">
+                    Advertising Efficiency Dashboard only
+                  </p>
+                </div>
+                <div className="text-right flex-shrink-0 ml-4">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
+                    +£232
+                  </div>
+                  <div className="text-xs text-gray-400">Beta price</div>
+                  <div className="text-xs text-gray-500 line-through">
+                    £1,500 standard
+                  </div>
+                </div>
+              </div>
+              <ul className="text-xs text-gray-300 space-y-1 mt-3">
+                <li className="flex items-start gap-1">
+                  <span className="text-green-500 flex-shrink-0">✓</span>
+                  <span>4+ platform integration</span>
+                </li>
+                <li className="flex items-start gap-1">
+                  <span className="text-green-500 flex-shrink-0">✓</span>
+                  <span>Real-time budget reallocation</span>
+                </li>
+                <li className="flex items-start gap-1">
+                  <span className="text-green-500 flex-shrink-0">✓</span>
+                  <span>Machine learning optimization</span>
+                </li>
+                <li className="flex items-start gap-1">
+                  <span className="text-green-500 flex-shrink-0">✓</span>
+                  <span>30% cost reduction average</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`bg-white/5 backdrop-blur-xl rounded-2xl p-6 cursor-pointer transition-all duration-300 border-2 ${
+            trinitySelectionId === "trinity-core"
+              ? "border-blue-500 bg-blue-500/10 scale-[1.02]"
+              : "border-white/10 hover:border-white/20 hover:bg-white/10 hover:-translate-y-1"
+          }`}
+          onClick={() => setTrinitySelectionId("trinity-core")}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-3xl flex-shrink-0">⚡</div>
+            <div className="flex-1">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    Full Trinity Core
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-1">
+                    Essential business intelligence + AED
+                  </p>
+                </div>
+                <div className="text-right flex-shrink-0 ml-4">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
+                    +£695
+                  </div>
+                  <div className="text-xs text-gray-400">Beta price</div>
+                  <div className="text-xs text-gray-500 line-through">
+                    £4,500 standard
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-2">
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  💰 Expense Manager
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  📈 MCD System
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  🎯 RCD System
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  🚀 AED System
+                </span>
+              </div>
+              <div className="text-green-400 text-sm font-semibold">
+                Save £3,900 vs standard pricing
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`bg-white/5 backdrop-blur-xl rounded-2xl p-6 cursor-pointer transition-all duration-300 border-2 ${
+            trinitySelectionId === "trinity-plus"
+              ? "border-blue-500 bg-blue-500/10 scale-[1.02]"
+              : "border-white/10 hover:border-white/20 hover:bg-white/10 hover:-translate-y-1"
+          }`}
+          onClick={() => setTrinitySelectionId("trinity-plus")}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-3xl flex-shrink-0">🌟</div>
+            <div className="flex-1">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    Full Trinity Plus
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-1">
+                    Complete suite: All 5 systems working in perfect harmony
+                  </p>
+                </div>
+                <div className="text-right flex-shrink-0 ml-4">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
+                    +£1,159
+                  </div>
+                  <div className="text-xs text-gray-400">Beta price</div>
+                  <div className="text-xs text-gray-500 line-through">
+                    £7,500 standard
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-2">
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  💰 Expense Manager
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  📈 MCD System
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  🎯 RCD System
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  🧬 GARO System
+                </span>
+                <span className="bg-white/10 px-2 py-1 rounded-lg text-xs">
+                  🚀 AED System
+                </span>
+              </div>
+              <div className="text-green-400 text-sm font-semibold">
+                Save £6,500 vs standard pricing
+              </div>
+              <div className="mt-3 text-xs text-amber-500 bg-amber-500/10 border border-amber-500/30 rounded-lg p-2">
+                ⚠️ GARO requires +£1,600 for physical stores
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`bg-white/5 backdrop-blur-xl rounded-2xl p-6 cursor-pointer transition-all duration-300 border-2 ${
+            trinitySelectionId === "skip"
+              ? "border-blue-500 bg-blue-500/10 scale-[1.02]"
+              : "border-white/10 hover:border-white/20 hover:bg-white/10 hover:-translate-y-1"
+          }`}
+          onClick={() => setTrinitySelectionId("skip")}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-3xl flex-shrink-0">⏭️</div>
+            <div className="flex-1">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">
+                    Skip Trinity
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-1">
+                    Continue without Trinity systems
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-4">
+        <button
+          className="px-8 py-3 border-2 border-white/20 text-white rounded-full font-semibold flex items-center gap-2 hover:bg-white/5 transition-all"
+          onClick={prevStep}
+        >
+          <ChevronLeft className="w-4 h-4" /> Back
+        </button>
+        <button
+          className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold flex items-center gap-2 hover:shadow-lg hover:shadow-purple-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={nextStep}
+          disabled={!trinitySelectionId}
         >
           Continue <ChevronRight className="w-4 h-4" />
         </button>
